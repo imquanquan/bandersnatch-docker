@@ -8,4 +8,7 @@ RUN apk update && apk add --no-cache ca-certificates dcron bash  python3 tzdata&
 	touch /var/log/pypi.log  && \
 	mkdir /mirrors
 
+COPY ./rsync-cron /etc/crontabs/root
+COPY ./default.conf /etc/bandersnatch.conf
+
 CMD crond && tail -f /var/log/pypi.log

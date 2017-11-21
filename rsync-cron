@@ -1,0 +1,1 @@
+1 6 * * * bandersnatch mirror > /var/log/pypi.log 2>&1

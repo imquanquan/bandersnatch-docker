@@ -1,9 +1,9 @@
-FROM alpine:latest
+FROM alpine:3.8
 
-RUN apk update && apk add --no-cache ca-certificates dcron bash  python3 tzdata&& \
+RUN apk update && apk add --no-cache ca-certificates dcron bash python3 tzdata && \
 	rm -rf /var/cache/apk/* && \
-        ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
-        echo "Asia/Shanghai" > /etc/timezone && \
+        ln -sf /usr/share/zoneinfo/America/Chicago /etc/localtime && \
+        echo "America/Chicago" > /etc/timezone && \
 	pip3 install -r https://bitbucket.org/pypa/bandersnatch/raw/stable/requirements.txt && \
 	touch /var/log/pypi.log  && \
 	mkdir /mirrors
